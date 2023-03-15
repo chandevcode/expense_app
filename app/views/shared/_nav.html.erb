@@ -5,16 +5,18 @@
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </label>
     </div>
-    <a class="btn btn-ghost normal-case text-xl">Expense App</a>
+    <%= link_to "Expense App", expenses_path, class: "btn btn-ghost normal-case text-xl" %>
   </div>
-  <div class="navbar-center hidden lg:flex">
-    content
+  <% if user_signed_in? %> 
+    <div class="navbar-center hidden lg:flex">
+      <%= current_user.email %>
     </div>
+  <% end %>
   <div class="navbar-end">
     <% if user_signed_in? %>
-      <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { turbo_method: :delete}, class: "btn btn-sm" %>
+      <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { turbo_method: :delete}, class: "btn btn-sm btn-primary" %>
     <% else %>
-      <%= link_to "Sign in",new_user_session_path, class: "btn btn-sm" %>
+      <%= link_to "Sign in",new_user_session_path, class: "btn btn-sm btn-accent" %>
     <% end %>
   </div>
 </div>

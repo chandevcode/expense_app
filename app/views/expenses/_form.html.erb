@@ -10,41 +10,36 @@
       </ul>
     </div>
   <% end %>
-  
-  <div class="mb-4 flex items-center space-x-4 sm:space-x-6 sm:text-lg">
-    <%= form.label :category, value: "expnese", class: "flex items-center" do %>
-      <%= form.radio_button :category, "expense"%>
-      <span class="ml-1.5 sm:ml-2.5"><span class="hidden sm:inline"> </span>expense</span>
-    <% end %>
 
-    <%= form.label :category, value: "income", class: "flex items-center" do %>
-      <%= form.radio_button :category, "income"%>
-      <span class="ml-1.5 sm:ml-2.5"><span class="hidden sm:inline"> </span>income</span>
-    <% end %>
-  </div>
- 
+  <div class="form-control items-center">
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="my-2">
+      <%= form.text_field :name, placeholder: "Name", class: "input input-bordered input-accent w-full max-w-xs"%>
+    </div>
 
-  <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.text_field :amount %>
-  </div>
+    <div class="my-2">
+      <%= form.text_field :amount, placeholder: "ex: 12000", class: "input input-bordered input-accent w-full max-w-xs" %>
+    </div>
 
-  <div>
-    <%= form.label :date, style: "display: block" %>
-    <%= form.date_field :date %>
-  </div>
+    <div>
+      <%= form.label :date, style: "display: block" %>
+       <%=  form.date_field :date %> 
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
+    </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+    <div class= "my-2 p-2 flex flex-col justify-around">
+        
+      <%= form.select :category_id,Category.pluck(:category, :id), {}, {:class => " select select-accent w-full max-w-xs"}  %>
+        
+      <%# <%= form.select :user_id, User.pluck(:name, :id),{}, {:class => " select select-accent w-full max-w-xs"}    %>
+       <%= form.hidden_field :user_id, value: current_user.id  %>
+
+    </div>
+
+
+    <div class="flex justify-between">
+      <%= form.submit class: "btn btn-sm btn-accent" %>
+    </div>
+
+  </div> 
 <% end %>

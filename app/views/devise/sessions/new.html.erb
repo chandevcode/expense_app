@@ -1,31 +1,32 @@
-<h2>Log in</h2>
+<h2 class="text-lg font-bold">Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name  %>
-  </div>
+  <div class="flex flex-col items-center">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="my-2">
+      <%= f.text_field :name,  placeholder: "Name", class: "input input-bordered input-accent w-full max-w-xs"  %>
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class="my-2">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",  placeholder: "Email", class: "input input-bordered input-accent w-full max-w-xs" %>
+    </div>
+
+    <div class="my-2">
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "input input-bordered input-accent w-full max-w-xs" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="my-2">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "Log in", class: "btn btn-sm btn-accent" %>
+    </div>
+
   </div>
 <% end %>
 
