@@ -1,4 +1,7 @@
 class Expense < ApplicationRecord
   belongs_to :user
   belongs_to :category
+
+  validates :name, presence: true, uniqueness: true
+  validates :amount, presence: true
 end

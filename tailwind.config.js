@@ -1,4 +1,8 @@
 module.exports = {
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["cupcake", "dark", "cmyk"],
+  },
   content: [
     './app/views/**/*.html.erb',
     './app/helpers/**/*.rb',

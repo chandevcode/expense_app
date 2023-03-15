@@ -10,6 +10,19 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="mb-4 flex items-center space-x-4 sm:space-x-6 sm:text-lg">
+    <%= form.label :category, value: "expnese", class: "flex items-center" do %>
+      <%= form.radio_button :category, "expense"%>
+      <span class="ml-1.5 sm:ml-2.5"><span class="hidden sm:inline"> </span>expense</span>
+    <% end %>
+
+    <%= form.label :category, value: "income", class: "flex items-center" do %>
+      <%= form.radio_button :category, "income"%>
+      <span class="ml-1.5 sm:ml-2.5"><span class="hidden sm:inline"> </span>income</span>
+    <% end %>
+  </div>
+ 
 
   <div>
     <%= form.label :name, style: "display: block" %>
@@ -29,11 +42,6 @@
   <div>
     <%= form.label :user_id, style: "display: block" %>
     <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.label :category_id, style: "display: block" %>
-    <%= form.text_field :category_id %>
   </div>
 
   <div>
