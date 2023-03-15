@@ -9,7 +9,9 @@
   </div>
   <% if user_signed_in? %> 
     <div class="navbar-center hidden lg:flex">
-      <%= current_user.email %>
+      <h3 class="text-lg font-bold">   
+        <%= current_user.email %>
+      </h3>
     </div>
   <% end %>
   <div class="navbar-end">
